@@ -16,12 +16,12 @@ public class Order {
         this.hoodie = hoodie;
         this.payment = payment;
 
-        if(hoodie) amountPaid += 3;
-        if(design) amountPaid += 2;
-
-        amountPaid += payment.getTransactionFee(revenuePerShirt);
-
         profit = revenuePerShirt - amountPaid;
+        if(hoodie) profit -= 3;
+        if(design) profit -= 2;
+
+        profit -= payment.getTransactionFee(revenuePerShirt);
+
     }
 
 }
